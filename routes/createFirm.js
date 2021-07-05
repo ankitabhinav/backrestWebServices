@@ -10,8 +10,8 @@ registerRouter.post('/', (req, res) => {
 
     //console.log(req.body);
 
-    if (!req.body.email || !req.body.password || !req.body.confirmPassword || !req.body.ownerName || !req.body.firmName) {
-        return res.status(400).send({ success: false, status: 'email, password, ownerName, firmName, confirm password, fields are required' });
+    if (!req.body.email || !req.body.password || !req.body.confirmPassword || !req.body.ownerName || !req.body.firmName || !req.body.companyLogo) {
+        return res.status(400).send({ success: false, status: 'email, password, ownerName, firmName, confirm password,compamyLogo fields are required' });
     }
     if (req.body.password !== req.body.confirmPassword) {
         return res.status(400).send({ success: false, status: 'passwords do not match' });
@@ -33,7 +33,8 @@ registerRouter.post('/', (req, res) => {
                     ownerName: req.body.ownerName,
                     email: req.body.email,
                     password: hashed,
-                    firmName: req.body.firmName
+                    firmName: req.body.firmName,
+                    companyLogo:req.body.companyLogo
                 });
 
                 newFirm.save((err, firm) => {

@@ -2,7 +2,7 @@ const allLogsModel = require('../schemas/allLogs')
 
 const myLogger = (type,data) => {
     try {
-        let newData = data;
+        let newData = data.toObject();;
         delete newData.password;
         delete newData.privateKey;
         const newLog = new allLogsModel({

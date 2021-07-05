@@ -29,7 +29,6 @@ const userSchema = new mongoose.Schema({
         required: false,
         default: 'client'
     },
-    
     isVerified: {
         type: Boolean,
         required: false,
@@ -40,16 +39,18 @@ const userSchema = new mongoose.Schema({
         required:false,
         default:true
     },
-    firmName : {
-        type:String,
-        required:true,
-        minLength: 5,
-        maxLength: 20
-    },
     privateKey : {
         type:String,
         required:true,
         default:generateRandomString()
+    },
+    firmId:{
+        type:mongoose.Schema.ObjectId,
+        required:true
+    },
+    firmName:{
+        type:String,
+        required:true
     },
     date: { type: Date, default: Date.now },
 

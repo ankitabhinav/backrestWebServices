@@ -50,6 +50,10 @@ const firmSchema = new mongoose.Schema({
         type:String,
         required:false
     },
+    companyLogo:{
+        type:String,
+        required:true
+    },
     date: { type: Date, default: Date.now },
 
 
