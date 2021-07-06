@@ -1,5 +1,5 @@
 const express = require('express');
-const verifyAccountRouter = express.Router();
+const resetPasswordRouter = express.Router();
 const bcrypt = require('bcrypt');
 //Create a firmsModel model just by requiring the module
 const firmsModel = require('../schemas/firm');
@@ -9,18 +9,24 @@ const sendVerificationEmail = require('../SendEmail')
 const jwt = require('jsonwebtoken');
 const path = require('path');
 
+resetPasswordRouter.post('/firm/resetPassword', (req,res) => {
+    console.log(req.body.pass)
+    return res.status(200).send({ success: true, status: req.body });
+})
 
-verifyAccountRouter.get('/firm/verifyAccount', (req, res) => {
+
+resetPasswordRouter.get('/firm/resetPassword', (req, res) => {
 
     console.log(req.query);
 
     if (!req.query.token) {
         return res.status(400).send({ success: false, status: 'verification token is not present' });
     }
+    return res.render('../views/resetPassword.ejs',{token:req.query.token});
 
 
 
-    async function verifyAccount() {
+    async function resetPassword() {
 
         try {
 
@@ -55,12 +61,12 @@ verifyAccountRouter.get('/firm/verifyAccount', (req, res) => {
         }
 
     }
-    verifyAccount();
+    resetPassword();
 
 
 });
 
-verifyAccountRouter.get('/user/verifyAccount', (req, res) => {
+resetPasswordRouter.get('/user/resetPassword', (req, res) => {
 
     console.log(req.query);
 
@@ -68,7 +74,7 @@ verifyAccountRouter.get('/user/verifyAccount', (req, res) => {
         return res.status(400).send({ success: false, status: 'verification token is not present' });
     }
 
-    async function verifyAccount() {
+    async function resetPassword() {
 
         try {
 
@@ -103,9 +109,9 @@ verifyAccountRouter.get('/user/verifyAccount', (req, res) => {
         }
 
     }
-    verifyAccount();
+    resetPassword();
 
 
 });
 
-module.exports = verifyAccountRouter;
+module.exports = resetPasswordRouter;
