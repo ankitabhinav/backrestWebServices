@@ -86,11 +86,11 @@ verifyAccountRouter.get('/user/verifyAccount', (req, res) => {
                     function (err, docs) {
                         if (err) {
                             console.log(err);
-                            return res.status(500).send({ success: false, status: "Account verification failed" });
+                            return res.render('../views/verifyFailed.ejs', { message: 'Account verification failed' });
                         }
                         else {
                             console.log("Updated User : ", docs);
-                            return res.sendFile(path.join(__dirname, '../views/verifySuccess.html'))
+                            return res.render('../views/verifySuccess.ejs', { message: 'Account verified successfully' });
                             //return res.status(200).send({ success: true, status: "Account verified successfully" });
                         }
                     });
@@ -98,7 +98,7 @@ verifyAccountRouter.get('/user/verifyAccount', (req, res) => {
 
         } catch (err) {
             console.log(err);
-            return res.sendFile(path.join(__dirname, '../views/verifyFailed.html'))
+            return res.render('../views/verifyFailed.ejs', { message: 'Something went wrong' });
             //return res.status(500).send({ success: false, status: err ? err : "something went wrong" });
         }
 
