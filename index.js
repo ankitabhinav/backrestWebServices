@@ -7,6 +7,7 @@ const registerUserRouter = require('./routes/register');
 const createNewFirmRouter = require('./routes/createFirm');
 const verifyAccountRouter = require('./routes/verifyAccount');
 const resetPasswordRouter = require('./routes/resetPassword');
+const loginRouter = require('./routes/loginRouter')
 const cors = require('cors');
 const app = express();
 const Logger = require('./Logger');
@@ -21,7 +22,9 @@ app.use('/email',sendEmailRouter);
 app.use('/register',registerUserRouter);
 app.use('/createNewFirm',createNewFirmRouter);
 app.use('/verify',verifyAccountRouter);
+app.use('/login', loginRouter);
 app.use('/reset',resetPasswordRouter);
+
 
 
 // init mongoose
