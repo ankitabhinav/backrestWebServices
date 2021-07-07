@@ -25,9 +25,9 @@ app.use('/reset',resetPasswordRouter);
 
 
 // init mongoose
-/* mongoose.connect( `${process.env.MONGO_URI}`, {useNewUrlParser: true,  useUnifiedTopology: true })
+mongoose.connect( `${process.env.MONGO_URI}`, {useNewUrlParser: true,  useUnifiedTopology: true })
 .then(() => console.log("connected successfully"))
-.catch((err) => {return console.error("Could not connect:", err)} ); */
+.catch((err) => {return console.error("Could not connect:", err)} );
 
 app.get('/', (req,res) => {
     console.log('------------');
