@@ -42,7 +42,7 @@ verifyAccountRouter.get('/firm/verifyAccount', (req, res) => {
                         }
                         else {
                             console.log("Updated User : ", docs);
-                            return res.sendFile(path.join(__dirname, '../views/verifySuccess.html'))
+                            return res.render('../views/verifySuccess.ejs',{message:'verification successful'})
                             //return res.status(200).send({ success: true, status: "Account verified successfully" });
                         }
                     });
@@ -50,7 +50,7 @@ verifyAccountRouter.get('/firm/verifyAccount', (req, res) => {
 
         } catch (err) {
             console.log(err);
-            return res.sendFile(path.join(__dirname, '../views/verifyFailed.html'))
+            return res.sendFile('../views/verifyFailed.ejs',{mesaage:'verification failed'})
             //return res.status(500).send({ success: false, status: err ? err : "something went wrong" });
         }
 
