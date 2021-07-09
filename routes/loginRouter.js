@@ -14,7 +14,7 @@ loginRouter.get('/firm', (req, res) => {
     console.log(sess)
 
     if (!sess.email) {
-        return res.render('../views/signin.ejs')
+        return res.render('../views/signIn.ejs')
     } else {
         return res.redirect('/firm/dashboard')
     }

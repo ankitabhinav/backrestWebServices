@@ -13,7 +13,7 @@ dashboardRouter.get('/', (req, res) => {
 
     sess= req.session;
 
-    if (!sess.email) return res.render('../views/signin.ejs');
+    if (!sess.email) return res.render('../views/signIn.ejs');
    
     return res.render('../views/dashboard/home.ejs',{sess})
 
@@ -24,7 +24,7 @@ dashboardRouter.get('/firm_details', (req, res) => {
 
     sess= req.session;
 
-    if (!sess.email) return res.render('../views/signin.ejs');
+    if (!sess.email) return res.render('../views/signIn.ejs');
    
     return res.render('../views/dashboard/firmDetails.ejs',{sess})
 
@@ -35,7 +35,7 @@ dashboardRouter.get('/users', (req, res) => {
 
     sess= req.session;
 
-    if (!sess.email) return res.render('../views/signin.ejs');
+    if (!sess.email) return res.render('../views/signIn.ejs');
 
     const getAllUsers = async() => {
         try {
@@ -58,7 +58,7 @@ dashboardRouter.get('/logs', (req, res) => {
 
     sess= req.session;
 
-    if (!sess.email) return res.render('../views/signin.ejs');
+    if (!sess.email) return res.render('../views/signIn.ejs');
 
     const getLogs = async() => {
         try {
@@ -83,7 +83,7 @@ dashboardRouter.get('/settings', (req, res) => {
 
     sess= req.session;
 
-    if (!sess.email) return res.render('../views/signin.ejs');
+    if (!sess.email) return res.render('../views/signIn.ejs');
    
     return res.render('../views/dashboard/settings.ejs',{sess})
 
