@@ -33,7 +33,7 @@ app.use(cors());
   })) */
 //app.use(session({secret: process.env.SESSION_KEY,saveUninitialized: true,resave: false,cookie: { secure: false }}));
 app.use(sessions({
-    secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
+    secret: process.env.SESSION_KEY,
     saveUninitialized:true,
     cookie: { maxAge: oneDay },
     resave: false
